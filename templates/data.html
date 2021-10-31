@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<div>
+    <table>
+        <tr>
+            <th>Si. No</th>
+            <th>Name</th>
+            <th>Mobile No</th>
+            <th>Email ID</th>
+            <th>Registration No</th>
+            <th>Registration Council</th>
+        </tr>
+        {% for row in data %}
+            <tr>
+                <td>{{ row[0] + 1 }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+                <td>{{ row[5] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

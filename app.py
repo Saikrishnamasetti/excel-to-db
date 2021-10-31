@@ -43,12 +43,14 @@ def upload():
     return render_template('upload.html')
 
 
-@app.route('/data')
+@app.route('/data', methods=['POST', 'GET'])
 def data():
     conn = sqlite3.connect('person.db')
     c = conn.cursor()
     c.execute('SELECt * FROM persons')
     data = c.fetchall()
+    if request.method == 'POST':
+        return render_template('data.html', data=data)
     return render_template('data.html', data=data)
 
 

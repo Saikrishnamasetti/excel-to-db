@@ -33,7 +33,7 @@ def index():
 @app.route('/upload', methods=['POST', 'GET'])
 def upload():
     if request.method == 'POST':
-        file = request.form['file']
+        file = request.files['file']
         df = pd.read_excel(file)
         engine = create_engine('sqlite:///person.db', echo=True)
         sqliteConnection = engine.connect()
